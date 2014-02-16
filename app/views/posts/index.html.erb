@@ -3,11 +3,10 @@
 <%= link_to "Add a Post", new_post_path %>
 <p></p>
 <% @posts.each do |post| %>
-  <!-- A wrapper element for each Post that also has the value of the Post's id -->
   <div data-post-id="<%= post.id %>">
     <%= image_tag post.image.url %>
 
-    <p><%= pluralize post.meows.count, "Meow" %></p>
+    <p data-meow-count="<%= post.meows.count %>"><%= pluralize post.meows.count, "Meow" %></p>
 
     <% if user_signed_in? %>
       <% if post.has_meow_from?(current_user) %>
