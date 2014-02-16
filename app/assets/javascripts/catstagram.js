@@ -8,6 +8,9 @@ $(document).ready(function() {
       url: $form.attr('action'),
       dataType: "json",
       success: function(meow) {
+        // Find the parent wrapper div so that we can use its data-post-id
+        $post = $form.closest('[data-post-id]');
+
         // Create the String version of the form action
         action = '/posts/' + meow.post_id + '/meows/'+ meow.id;
 
@@ -32,10 +35,10 @@ $(document).ready(function() {
         var meowCount = $meowCount.data('meow-count');
         meowCount++;
 
-        if (meowCount === 1){
-          $meowCount.replaceWith('<p data-meow-count=' + meowCount + '>' + meowCount + ' Meow</p>')
+        if (meowCount == 1){
+          $meowCount.replaceWith('<p data-meow-count=' + meowCount + '>' + meowCount + ' Meow</p>');
         } else {
-          $meowCount.replaceWith('<p data-meow-count=' + meowCount + '>' + meowCount + ' Meows</p>')
+          $meowCount.replaceWith('<p data-meow-count=' + meowCount + '>' + meowCount + ' Meows</p>');
         }
       }
     });
@@ -77,10 +80,10 @@ $(document).ready(function() {
         var meowCount = $meowCount.data('meow-count');
         meowCount--;
 
-        if (meowCount === 1){
-          $meowCount.replaceWith('<p data-meow-count=' + meowCount + '>' + meowCount + ' Meow</p>')
+        if (meowCount == 1){
+          $meowCount.replaceWith('<p data-meow-count=' + meowCount + '>' + meowCount + ' Meow</p>');
         } else {
-          $meowCount.replaceWith('<p data-meow-count=' + meowCount + '>' + meowCount + ' Meows</p>')
+          $meowCount.replaceWith('<p data-meow-count=' + meowCount + '>' + meowCount + ' Meows</p>');
         }
       }
     });
